@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Pavo is a mobile app Tailwind CSS HTML template created to help you present benefits, features and information about mobile apps in order to convince visitors to download them"
+    />
+    <meta name="author" content="Your name" />
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="" />
+    <!-- website name -->
+    <meta property="og:site" content="" />
+    <!-- website link -->
+    <meta property="og:title" content="" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" />
+    <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Taarit</title>
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/fontawesome-all.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='dist/TailwindCss/output.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/swiper.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/styles.css')}}"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/beacfcfa82.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png" />
+    {% endblock %}
+  </head>
+  <body data-spy="scroll" data-target=".fixed-top">
+    <!-- Navigation -->
+    {% block nav %}
+    <nav class="navbar fixed-top">
+      <div
+        class="container sm:px-4 lg:px-8 flex flex-wrap items-center justify-between lg:flex-nowrap"
+      >
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="text-gray-800 font-semibold text-3xl leading-4 no-underline page-scroll" href="index.html">Pavo</a> -->
+
+        <!-- Image Logo -->
+        <div
+          class="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline"
+        >
+          <h1 class="">Ta<span class="text-green-400">arit</span></h1>
+        </div>
+
+        <button
+          class="background-transparent rounded text-xl leading-none hover:no-underline focus:no-underline lg:hidden lg:text-gray-400"
+          type="button"
+          data-toggle="offcanvas"
+        >
+          <span
+            class="navbar-toggler-icon inline-block w-8 h-8 align-middle"
+          ></span>
+        </button>
+
+        <div
+          class="navbar-collapse offcanvas-collapse lg:flex lg:flex-grow lg:items-center"
+          id="navbarsExampleDefault"
+        >
+          <ul
+            class="pl-0 text-xl gap-5 items-center mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row"
+          >
+            <li>
+              <a class="nav-link page-scroll active" href="#header"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link page-scroll" href="#features">Features</a>
+            </li>
+            <li>
+              <a class="nav-link page-scroll" href="#details">Details</a>
+            </li>
+            <li>
+              <a class="nav-link page-scroll" href="#pricing">Pricing</a>
+            </li>
+            <li class="dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdown01"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Drop</a
+              >
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a
+                  class="dropdown-item page-scroll"
+                  href="{{ url_for('user.user_index') }}"
+                  >User Data</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item page-scroll" href="terms.html"
+                  >Terms Conditions</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item page-scroll" href="privacy.html"
+                  >Privacy Policy</a
+                >
+              </div>
+            </li>
+            <li>
+              {% if allowed == "Login" %}
+              <a
+                class="nav-link page-scroll"
+                href="{{ url_for('index.login') }}"
+                >{{allowed}}</a
+              >
+              {% else %}
+              <a
+                class="nav-link page-scroll"
+                href="{{ url_for('index.user_logout') }}"
+                >{{allowed}}</a
+              >
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+        <!-- end of navbar-collapse -->
+      </div>
+      <!-- end of container -->
+    </nav>
+    {% endblock %}
+
+    <!-- end of navbar -->
+    <!-- end of navigation -->
+    {% block content %}
+    <!-- Header -->
+    <header
+      id="header"
+      class="header py-28 text-center md:pt-36 lg:text-left xl:pt-44 xl:pb-32"
+    >
+      <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+        <div class="mb-16 lg:mt-32 xl:mt-40 xl:mr-12">
+          <h1 class="h1-large text-purple-700 mb-5">Taarit</h1>
+          <p class="p-large mb-8">
+            Taarit is an ultimate rescue system that will help and rescue
+            drivers in all possible scenarios.
+          </p>
+          <a class="btn-solid-lg" href="{{ url_for('user.user_index') }}"
+            >Add Vehicle</a
+          >
+          <a class="btn-solid-lg secondary" href="{{ url_for('sign_up') }}"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+      <!-- end of container -->
+    </header>
+    <!-- end of header -->
+    <!-- end of header -->
+
+    <!-- Introduction -->
+    <div class="pt-4 pb-14 text-center">
+      <div class="container px-4 sm:px-8 xl:px-4">
+        <p
+          class="mb-4 text-gray-800 text-2xl leading-10 lg:max-w-5xl lg:mx-auto"
+        >
+          Taarit is a “full-stack rescue system” venture which addresses
+          everything from software and hardware to telephony systems, ambulance
+          drivers and paramedics. In addition to ensuring a seamless end-to-end
+          emergency medical service network within golden hour, we also claim to
+          help drivers in car breakdown and other all possible circumstances.
+        </p>
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of introduction -->
+
+    <!-- Features -->
+    <div id="features" class="cards-1">
+      <div class="container px-4 sm:px-8 xl:px-4">
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fa fa-hospital-alt"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Timely Medical Help</h5>
+            <p class="mb-4">
+              To provide medical assistance to the accident victim within golden
+              hour of the trauma.
+            </p>
+          </div>
+        </div>
+        <!-- end of card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Driver assistance</h5>
+            <p class="mb-4">
+              To help drivers in case of car break down, providing voice
+              assistance while driving in case of any abnormal behaviour by
+              other cars,etc.
+            </p>
+          </div>
+        </div>
+        <!-- end of card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Privacy Protect</h5>
+            <p class="mb-4">
+              All The Information That User Provides While Registering Are Kept
+              Secured
+            </p>
+          </div>
+        </div>
+        <!-- end of card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Region Wise Accident Analysis</h5>
+            <p class="mb-4">
+              We provide statistical data of the accident per region.
+            </p>
+          </div>
+        </div>
+        <!-- end of card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Effective Emergency Notification</h5>
+            <p class="mb-4">
+              In case of an accident, the Emergency contacts will receive a call
+              & message comprising of the live location of the victim.
+            </p>
+          </div>
+        </div>
+        <!-- end of card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="text-6xl p-8">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">24 X 7 Service</h5>
+            <p class="mb-4">We Are Always Here For You</p>
+          </div>
+        </div>
+        <!-- end of card -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of cards-1 -->
+    <!-- end of features -->
+
+    <!-- Details 1 -->
+    <div id="details" class="pt-12 pb-16 lg:pt-16">
+      <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-5">
+          <div class="mb-16 lg:mb-0 xl:mt-16">
+            <h2 class="mb-6">Your Life is our Priority</h2>
+            <p class="mb-4">
+              We intent to provide medical help to the victim within golden hour
+              of the trauma, to increase the chances of survival and to reduce
+              the risk of severity .
+            </p>
+            <p class="mb-4">
+              We hope that Taarit will not let anyone cease to exit because of
+              untimely medical assistance.
+            </p>
+          </div>
+        </div>
+        <!-- end of col -->
+        <div class="lg:col-span-7">
+          <img
+            src="{{url_for('static',filename='img/doctor.jpg')}}"
+            alt=""
+            width=""
+          />
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of details 1 -->
+
+    <!-- Details 2 -->
+    <div class="py-24">
+      <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-7">
+          <div class="mb-12 lg:mb-0 xl:mr-14">
+            <img
+              src="{{url_for('static',filename='img/location.jpg')}}"
+              alt=""
+              width=""
+            />
+          </div>
+        </div>
+        <!-- end of col -->
+        <div class="lg:col-span-5">
+          <div class="xl:mt-12">
+            <h2 class="mb-6">Control Room per Region</h2>
+            <ul class="list mb-7 space-y-2">
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>
+                  Nearest control room will snag the location of the accident.
+                </div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>
+                  Control room will then lead the location to the nearest
+                  hospital & police station.
+                </div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>
+                  Control Room will also forward the location to the nearest
+                  ambulance in that case.
+                </div>
+              </li>
+            </ul>
+            <a
+              class="btn-solid-reg popup-with-move-anim mr-1.5"
+              href="#details-lightbox"
+              >Lightbox</a
+            >
+            <a class="btn-outline-reg" href="article.html">Details</a>
+          </div>
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of details 2 -->
+
+    <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- end of details lightbox -->
+
+    <!-- Details 3 -->
+    <div id="details-lightbox" class="pt-16 pb-12">
+      <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-5">
+          <div class="mb-16 lg:mb-0 xl:mt-16">
+            <h2 class="mb-6">Statistical Data for reviewing.</h2>
+            <p class="mb-4">
+              For prevention purpose, we provide statistical data of the
+              accident per region. This data comprises of pie chart, bar
+              graph,etc.
+            </p>
+            <p class="mb-4">
+              This data will help the authorities to analyze and control the
+              accidents taking place in a particular region.
+            </p>
+          </div>
+        </div>
+        <!-- end of col -->
+        <div class="lg:col-span-7">
+          <div class="ml-14">
+            <img
+              src="{{url_for('static',filename='img/analytics.jpg')}}"
+              alt=""
+              width=""
+            />
+          </div>
+        </div>
+<div>
+        <button class="btn-outline-reg mfp-close as-button" type="button">
+          <div class="">Back</div>
+        </button>
+        <!-- end of col -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of details 3 -->
+
+    <!-- Statistics -->
+    <div class="counter">
+      <div class="container px-4 sm:px-8">
+        <!-- Counter -->
+        <div id="counter">
+          <div class="cell">
+            <div class="counter-value number-count" data-count="256">1</div>
+            <p class="counter-info">Total accidents</p>
+          </div>
+          <div class="cell">
+            <div class="counter-value number-count" data-count="224">1</div>
+            <p class="counter-info">Rescued on time</p>
+          </div>
+          <div class="cell">
+            <div class="counter-value number-count" data-count="159">1</div>
+            <p class="counter-info">Connected control rooms</p>
+          </div>
+          <div class="cell">
+            <div class="counter-value number-count" data-count="127">1</div>
+            <p class="counter-info">Connected Hospitals</p>
+          </div>
+          <div class="cell">
+            <div class="counter-value number-count" data-count="2341">1</div>
+            <p class="counter-info">Connected Users</p>
+          </div>
+        </div>
+        <!-- end of counter -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of counter -->
+    <!-- end of statistics -->
+
+    <!-- Testimonials -->
+    <div class="slider-1 py-32 bg-gray">
+      <div class="container px-4 sm:px-8">
+        <h2 class="mb-12 text-center lg:max-w-xl lg:mx-auto">Team Taarit</h2>
+
+        <!-- Card Slider -->
+        <div class="slider-container">
+          <div class="swiper-container card-slider">
+            <div class="swiper-wrapper">
+              <!-- Slide -->
+              <div class="swiper-slide">
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="images/testimonial-1.jpg"
+                    alt="alternative"
+                  />
+                  <div class="card-body">
+                    <p class="italic mb-3">
+                      Btech Third Year, Information Technology student
+                    </p>
+                    <p class="testimonial-author">Divya Pimple</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end of swiper-slide -->
+              <!-- end of slide -->
+
+              <!-- Slide -->
+              <div class="swiper-slide">
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="images/testimonial-2.jpg"
+                    alt="alternative"
+                  />
+                  <div class="card-body">
+                    <p class="italic mb-3">
+                      Btech Third Year, Information Technology student
+                    </p>
+                    <p class="testimonial-author">Chirag Rohada</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end of swiper-slide -->
+              <!-- end of slide -->
+
+              <!-- Slide -->
+              <div class="swiper-slide">
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="images/testimonial-3.jpg"
+                    alt="alternative"
+                  />
+                  <div class="card-body">
+                    <p class="italic mb-3">
+                      Btech Third Year, Information Technology student
+                    </p>
+                    <p class="testimonial-author">Aarya Kansara</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end of swiper-slide -->
+              <!-- end of slide -->
+
+              <!-- Slide -->
+              <div class="swiper-slide">
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="images/testimonial-4.jpg"
+                    alt="alternative"
+                  />
+                  <div class="card-body">
+                    <p class="italic mb-3">
+                      Btech Third Year, Information Technology student
+                    </p>
+                    <p class="testimonial-author">Hem Vyas</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end of swiper-slide -->
+              <!-- end of slide -->
+
+              <!-- Slide -->
+
+              <!-- end of swiper-slide -->
+              <!-- end of slide -->
+            </div>
+            <!-- end of swiper-wrapper -->
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- end of add arrows -->
+          </div>
+          <!-- end of swiper-container -->
+        </div>
+        <!-- end of slider-container -->
+        <!-- end of card slider -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of slider-1 -->
+    <!-- end of testimonials -->
+
+    <!-- Pricing -->
+    <div id="pricing" class="cards-2">
+      <div class="absolute bottom-0 h-40 w-full bg-white"></div>
+      <div class="container px-4 pb-px sm:px-8">
+        <h2 class="mb-2.5 text-white lg:max-w-xl lg:mx-auto">
+          Pricing options for all budgets
+        </h2>
+        <p class="mb-16 text-white lg:max-w-3xl lg:mx-auto">
+          Our pricing plans are setup in such a way that any user can start
+          enjoying Pavo without worrying so much about costs. They are flexible
+          and work for any type of industry
+        </p>
+
+        <!-- Card-->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">STANDARD</div>
+            <div class="price">
+              <span class="currency">$</span><span class="value">5</span>
+            </div>
+            <div class="frequency">monthly</div>
+            <p>
+              This basic package covers the marketing needs of small startups
+            </p>
+            <ul class="list mb-7 space-y-2 text-left">
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>List building and relations</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Seamless platform integration</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Great performance on devices</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Community support and videos</div>
+              </li>
+            </ul>
+            <div class="button-wrapper">
+              <a class="btn-solid-reg page-scroll" href="#download">Download</a>
+            </div>
+          </div>
+        </div>
+        <!-- end of card -->
+        <!-- end of card -->
+
+        <!-- Card-->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">ADVANCED</div>
+            <div class="price">
+              <span class="currency">$</span><span class="value">8</span>
+            </div>
+            <div class="frequency">monthly</div>
+            <p>This is a more advanced package suited for medium companies</p>
+            <ul class="list mb-7 space-y-2 text-left">
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>List building and relations</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Seamless platform integration</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Great performance on devices</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Community support and videos</div>
+              </li>
+            </ul>
+            <div class="button-wrapper">
+              <a class="btn-solid-reg page-scroll" href="#download">Download</a>
+            </div>
+          </div>
+        </div>
+        <!-- end of card -->
+        <!-- end of card -->
+
+        <!-- Card-->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">COMPLETE</div>
+            <div class="price">
+              <span class="currency">$</span><span class="value">10</span>
+            </div>
+            <div class="frequency">monthly</div>
+            <p>
+              This is a comprehensive package designed for big organizations
+            </p>
+            <ul class="list mb-7 text-left space-y-2">
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>List building and relations</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Seamless platform integration</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Great performance on devices</div>
+              </li>
+              <li class="flex">
+                <i class="fas fa-chevron-right"></i>
+                <div>Community support and videos</div>
+              </li>
+            </ul>
+            <div class="button-wrapper">
+              <a class="btn-solid-reg page-scroll" href="#download">Download</a>
+            </div>
+          </div>
+        </div>
+        <!-- end of card -->
+        <!-- end of card -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of cards-2 -->
+    <!-- end of pricing -->
+
+    <!-- Conclusion -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container px-4 sm:px-8">
+        <h4 class="mb-8 lg:max-w-3xl lg:mx-auto">
+          Taarit is a rescue system
+          <a
+            class="text-indigo-600 hover:text-gray-500"
+            href="mailto:email@domain.com"
+            >kjseit@gmail.com</a
+          >
+        </h4>
+        <div class="social-container">
+          <span class="fa-stack">
+            <a href="#your-link">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-facebook-f fa-stack-1x"></i>
+            </a>
+          </span>
+          <span class="fa-stack">
+            <a href="#your-link">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x"></i>
+            </a>
+          </span>
+          <span class="fa-stack">
+            <a href="#your-link">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-pinterest-p fa-stack-1x"></i>
+            </a>
+          </span>
+          <span class="fa-stack">
+            <a href="#your-link">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-instagram fa-stack-1x"></i>
+            </a>
+          </span>
+          <span class="fa-stack">
+            <a href="#your-link">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x"></i>
+            </a>
+          </span>
+        </div>
+        <!-- end of social-container -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of footer -->
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-3">
+        <ul class="mb-4 list-unstyled p-small">
+          <li class="mb-2"><a href="article.html">Article Details</a></li>
+          <li class="mb-2"><a href="terms.html">Terms & Conditions</a></li>
+          <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+        <p class="pb-2 p-small statement">
+          Copyright © <a href="#your-link" class="no-underline">Your name</a>
+        </p>
+
+        <p class="pb-2 p-small statement">
+          Distributed by :<a href="https://themewagon.com/" class="no-underline"
+            >Themewagon</a
+          >
+        </p>
+      </div>
+
+      <!-- end of container -->
+    </div>
+    <!-- end of copyright -->
+    <!-- end of copyright -->
+    {% endblock %}
+    <!-- Scripts -->
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    <!-- jQuery for JavaScript plugins -->
+    <script src="{{url_for('static',filename='js/jquery.easing.min.js')}}"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{{url_for('static',filename='js/swiper.min.js')}}"></script>
+    <!-- Swiper for image and text sliders -->
+    <script src="{{url_for('static',filename='js/jquery.magnific-popup.js')}}"></script>
+    <!-- Magnific Popup for lightboxes -->
+    <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+    <!-- Custom scripts -->
+  </body>
+</html>

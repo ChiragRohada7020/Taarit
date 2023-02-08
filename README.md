@@ -5,7 +5,7 @@ With an increase in population, there is an increase in the number of accidents 
 
 ## Tarit Website
 
-https://accidentdetection1.herokuapp.com/
+https://Taarit.com/
 
 
 
@@ -15,7 +15,7 @@ https://accidentdetection1.herokuapp.com/
 
 1) Clone The Repo
 ```bash
-   git clone https://github.com/ChiragRohada7020/AccidentPanic.git
+   git clone https://github.com/ChiragRohada7020/Taarit.git
 ```
 
 

